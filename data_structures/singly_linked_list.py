@@ -19,9 +19,43 @@ class SinglyLinkedList:
             current = current.next
         current.next = new_node
 
-    def print_list(self): # helper to print the whole list
+    def insert_at_beginning(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
+    def delete_node(self, value):
+        if not self.head:
+            return
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+        current = self.head
+        while current.next and current.next.value != value:
+            current = current.next
+        if current.next:
+            current.next = current.next.next
+
+        
+    def search(self, value):
         current = self.head
         while current:
-            print(current.value, end=" -> ")
+            if current.value == value:
+                return True
             current = current.next
-        print("None")
+        return False
+    
+    def to_list(self):
+        result = []
+        current = self.head
+        while current:
+            result.append(current.value)
+            current = current.next
+        return result
+
+    # def print_list(self): # helper to print the whole list
+    #     current = self.head
+    #     while current:
+    #         print(current.value, end=" -> ")
+    #         current = current.next
+    #     print("None")
