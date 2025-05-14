@@ -35,8 +35,7 @@ class SinglyLinkedList:
             current = current.next
         if current.next:
             current.next = current.next.next
-
-        
+      
     def search(self, value):
         current = self.head
         while current:
