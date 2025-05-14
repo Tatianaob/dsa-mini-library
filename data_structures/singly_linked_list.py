@@ -14,3 +14,21 @@ class SinglyLinkedList:
             self.head = new_node
             return
         
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+
+    def print_list(self): # helper to print the whole list
+        current = self.head
+        while current:
+            print(current.value, end=" -> ")
+            current = current.next
+        print("None")
+
+if __name__ == "__main__":
+    ll = SinglyLinkedList()
+    ll.insert_at_end(10)
+    ll.insert_at_end(20)
+    ll.insert_at_end(30)
+    ll.print_list()
