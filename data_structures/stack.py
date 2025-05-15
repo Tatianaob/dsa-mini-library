@@ -25,7 +25,7 @@ class Stack:
         value = self.top.value
         self.top = self.top.next
         self._size -= 1
-        return self.top.value
+        return value
     
     def peek(self):     
         """Return the top value without removing it"""
