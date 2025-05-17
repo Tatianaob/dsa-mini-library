@@ -10,3 +10,9 @@ def test_bst_insert_and_search():
     assert bst.search(20)
     assert not bst.search(999)
 
+def test_bst_inorder():
+    bst = BinarySearchTree()
+    values = [10,5,20,3,7,15]
+    for v in values:
+        bst.insert(v)
+    assert bst.inorder() == [3,5,7,10,15,20]
