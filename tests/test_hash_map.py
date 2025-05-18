@@ -16,3 +16,12 @@ def test_hash_map_operations():
 
     h.remove("name")
     assert not h.contains("name")
+
+def test_hash_map_keys():
+    h = HashMap()
+    h.put("a", 1)
+    h.put("b", 2)
+    h.put("c", 3)
+
+    keys = h.keys()
+    assert set(keys) == {"a", "b", "c"}
