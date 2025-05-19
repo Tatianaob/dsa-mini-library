@@ -16,7 +16,7 @@ class HashMap:
     def put(self, key, value):  #
         """Insert or put the key value pair"""
         index = self._hash(key)
-        bucket = self.table(index)
+        bucket = self.table[index]
 
         for i, (k, v) in enumerate(bucket):
             if k == key:
