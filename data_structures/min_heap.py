@@ -30,3 +30,26 @@ class MinHeap:
             self.heap[0] = last_val
             self._heapify(0)
         return min_val
+    def _heapify(self, index):
+        """Move the value down to maintain heap property."""
+        smallest = index
+        left = 2 * index + 1
+        right = 2 * index + 2
+
+        if left < len(self.heap) and self.heap[left] < self.heap[smallest]:
+            smallest = left
+        if right < len(self.heap) and self.heap[right] < self.heap[smallest]:
+            smallest = right
+
+        if smallest != index:
+            self.heap[index], self.heap[smallest] = self.heap[smallest], self.heap[index]
+            self._heapify(smallest)
+
+    def peek(self):
+        """Return the smallest value without removing it."""
+        if not self.heap:
+            raise IndexError("Heap is empty")
+        return self.heap[0]
+
+    def size(self):
+        return len(self.heap)
